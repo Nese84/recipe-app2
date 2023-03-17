@@ -7,11 +7,11 @@ import {
   StyledInput,
   StyledForm,
   StyledButton,
-} from "./Login.style";
+} from "./Register.style";
 
 import woman from "../../assets/woman.svg";
 import { useNavigate } from "react-router-dom";
-const Login = ({  setIsLogin }) => {
+const Register = ({  setIsLogin }) => {
   const [user, setUser] = useState("");
   const navigate = useNavigate();
 
@@ -33,17 +33,29 @@ const Login = ({  setIsLogin }) => {
         </Header>
         <StyledForm onSubmit={handleSubmit}>
           <StyledInput
-            placeholder="Enter Username"
+            placeholder="Enter UserName"
+            type="text"
+            onChange={(e) => setUser(e.target.value)}
+            required
+          />
+          <StyledInput
+            placeholder="Enter Email"
+            type="text"
+            onChange={(e) => setUser(e.target.value)}
+            required
+          />
+          <StyledInput
+            placeholder="Enter Password"
             type="text"
             onChange={(e) => setUser(e.target.value)}
             required
           />
           <StyledInput placeholder="Enter Password" type="password" required />
-          <StyledButton type="submit">Login</StyledButton>
+          <StyledButton type="submit">Register</StyledButton>
         </StyledForm>
       </FormContainer>
     </LoginContainer>
   );
 };
 
-export default Login;
+export default Register;
